@@ -2,17 +2,30 @@ import { Typography } from "@mui/material";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import Header from "./Header";
 import Button from "@mui/material/Button";
+
+
+
 export default function Contact() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const name = event.target.elements.name.value;
+    const email = event.target.elements.email.value;
+    const message = event.target.elements.message.value;
+
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Message:", message);
+  };
+
   return (
     <>
-      <Header />
-      <Box sx={{ marginLeft: "50px", marginTop: "100px" }}>
+      <Box sx={{ marginLeft: "50px", marginTop: "5rem" }}>
         <Box sx={{ mt: 8 }}>
-          <Typography variant="h3">Contact</Typography>
+          <Typography variant="h3" sx={{fontFamily:"'Courgette', cursive",}}>Contact</Typography>
         </Box>
-        <Typography variant="h4" sx={{ mt: 2 }}>
+        <Typography variant="h4" sx={{ mt: 2 , fontFamily: "'Courgette', cursive",}}>
           Get in touch
         </Typography>
         <Typography variant="h5" sx={{ mt: 2 }}>
@@ -20,24 +33,39 @@ export default function Contact() {
           <br /> Or call between 9:00 a.m. and 8:00 p.m. ET, Monday through
           Friday
         </Typography>
-        <Box sx={{ mt: 2 }}>
-          <TextField label="Name" sx={{ width: "30%", fontSize: "1.2rem" }} />
-        </Box>
-        <Box sx={{ mt: 2 }}>
-          <TextField label="Email" sx={{ width: "30%", fontSize: "1.2rem" }} />
-        </Box>
-        <Box sx={{ mt: 2 }}>
+        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
           <TextField
-            label="Message"
-            multiline
-            rows={4}
+            name="name"
+            label="Name"
             sx={{ width: "30%", fontSize: "1.2rem" }}
           />
-        </Box>
-        <Box sx={{ mt: 2 }}>
-          <Button variant="contained" >Send Message</Button>
+          <Box sx={{ mt: 2 }}>
+            <TextField
+              name="email"
+              label="Email"
+              sx={{ width: "30%", fontSize: "1.2rem" }}
+            />
+          </Box>
+          <Box sx={{ mt: 2 }}>
+            <TextField
+              name="message"
+              label="Message"
+              multiline
+              rows={4}
+              sx={{ width: "30%", fontSize: "1.2rem" }}
+            />
+          </Box>
+          <Box sx={{ mt: 2 }}>
+            <Button type="submit" variant="contained">
+              Send Message
+            </Button>
+          </Box>
         </Box>
       </Box>
+
+
+
+
     </>
   );
 }

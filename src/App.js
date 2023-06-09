@@ -1,64 +1,34 @@
-import './App.css';
-// import Footer from './Components/Footer';
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
+import { headerTabs } from "./config/routingconfig";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Services from "./components/Services";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
-
-
-import { BrowserRouter, Route, Routes} from 'react-router-dom';
-import Header from './components/Header';
-
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import Contact from './components/Contact';
 function App() {
   return (
-   <>
-        <BrowserRouter>
-<Routes>
-    <Route exact path="/" element ={<Header/>} />
-    <Route exact path="/hero" element ={<Hero/>} />
-    <Route exact path="/About" element={<About/>} />
-    <Route exact path="/services" element={<Services/>} />
-    <Route exact path="/contact" element={<Contact/>} />
+    <div className="app-container">
+      <BrowserRouter>
+        <Header
+          brandName={"MY PORTFOLIO"}
+          tabData={headerTabs}
+          sx={{ fontFamily: "'Courgette', cursive" }}
+        />
 
-</Routes>
-        </BrowserRouter>
+        <Routes>
+          <Route index path="/" element={<Hero />} />
+          <Route index path="/about" element={<About />} />
+          <Route index path="/services" element={<Services />} />
+          <Route index path="/contact" element={<Contact />} />
+        </Routes>
 
-        </>
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
 }
+
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

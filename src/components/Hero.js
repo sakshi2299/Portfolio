@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Container, Slide } from "@mui/material";
 import axios from "axios";
-import Header from "./Header";
 const imageStyle = {
   width: "100vw",
   height: "100vh",
@@ -44,7 +43,6 @@ function Hero() {
 
   return (
     <Container fixed>
-      <Header />
       <Box sx={imageStyle}>
         <Box sx={textStyling}>
           {heroData.map((hero, index) => (
@@ -57,7 +55,6 @@ function Hero() {
           ))}
         </Box>
       </Box>
-
     </Container>
   );
 }

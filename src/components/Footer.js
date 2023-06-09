@@ -5,10 +5,10 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   footer: {
-    backgroundColor: "white",
-    padding: (theme) => theme.spacing(3),
+    backgroundColor: "#5F9EA0",
+    padding: "5px",
     marginTop: "auto",
   },
 }));
@@ -58,3 +58,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
